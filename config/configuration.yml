@@ -1,0 +1,15 @@
+development:
+  site_url: http://0.0.0.0:3000
+  site_name: "Ready To Go!"
+  app_name: ready-to-go
+  admin_email: klaus@kofuchs.com
+  sender_email: kofuchs@kofuchs.com
+  session_name: '_ready-to-go_session'
+  
+production:
+    site_url: http://0.0.0.0:3000
+    site_name: "Ready To Go!"
+    app_name: ready-to-go
+    admin_email: klaus@kofuchs.com
+    sender_email: kofuchs@kofuchs.com
+    session_name: '_ready-to-go_session'
