@@ -1,11 +1,11 @@
 h1. "ready-to-go":http://github.com/kofuchs/ready-to-go
 
-ready-to-go is a Rails application that can be used as a start-up project. It includes some useful plugins I like to use in my own projects with an easy way to configure them all in one place.
+ready-to-go is a Rails application that can be used as a start-up project. It includes some useful functions and plugins I like to use in my own projects with an easy way to configure them all in one place.
 
 h2. Informations
 
 * index.html is already removed
-* If you want to have sessions stored in the database instead of the cookie-based default option, check the file *config/initializers/session_store.rb*, you'll need to make some changes there.
+* If you want to use the cookie-based default option instead of having the sessions stored in the database, comment the last line in *config/initializers/session_store.rb* and remove the *db/migrate/002_sessions.rb* migration file.
 
 h2. Installation
 
@@ -28,8 +28,8 @@ h3. "whenever":http://github.com/javan/whenever
 
 Whenever is a Ruby gem that provides a clear syntax for defining cron jobs. It outputs valid cron syntax and can even write your crontab file for you.
 
-If you plan to use this extension to manage cron jobs (e.g. If you are using sphinx and want to index your project every hour), you need to edit the "config/schedule.rb" file.
-After you finish editing the schedule.rb file, just run:
+If you plan to use this extension to manage cron jobs (e.g. If you are using sphinx and want to index your project every hour), you need to edit the *config/schedule.rb* file.
+After you finish editing the *schedule.rb* file, just run:
 
 <pre><code>$ whenever</code></pre>
 	
@@ -37,10 +37,24 @@ h3. "will_paginate":http://github.com/mislav/will_paginate/
 
 will_paginate is used to limit the number of records displayed in a single page.
 
-h3. "restful_-_authentication":http://github.com/technoweenie/restful-authentication
+h3. "restful-authentication":http://github.com/technoweenie/restful-authentication
 
 This plugin provides a foundation for securely managing user authentication:
 * Login / logout
 * Secure password handling
-* Account activation by validating email
+* Account activation by validating email (installed with)
 * Account approval / disabling by admin
+
+You can remove the routes that were created for logout, login, register and signup actions in your *routes.rb* file.
+
+Inside the users view folder you will see:
+* _sidebar => this one includes the login box (Usually this is what I want)
+* _sidebar_link ==> this one links to a login page
+
+h3. "forgot_password":http://github.com/greenisus/forgot_password
+
+Integrated with restful-authentication it is very helpful when people forget their passwords.
+
+
+
+

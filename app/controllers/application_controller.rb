@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   include ExceptionNotifiable
   consider_local "0.0.0.0" # "127.0.0.1" is always considered local if want you can do local_addresses.clear and not consider it local
   
+  include AuthenticatedSystem
+  
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 

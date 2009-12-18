@@ -39,6 +39,9 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
   
+  #used by restful-authentication
+  config.active_record.observers = :user_observer
+  
   config.gem 'whenever', :lib => false, :version => ">=0.4.1", :source => 'http://gemcutter.org/'
   config.gem 'will_paginate', :version => ">= 2.3.11", :source => 'http://gemcutter.org'
 end

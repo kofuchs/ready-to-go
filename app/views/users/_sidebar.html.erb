@@ -1,0 +1,21 @@
+<% if logged_in? -%>
+  <div id="user-bar-greeting">Logged in as <%= link_to_current_user :content_method => :login %></div>
+  <div id="user-bar-action"  >(<%= link_to "Log out", logout_path, { :title => "Log out" }    %>)</div>
+<% else -%>
+  <div id="user-bar-greeting"><%= link_to_login_with_IP 'Not logged in', :style => 'border: none;' %></div>
+  <div id="user-bar-action"  >
+	<% form_tag session_path do -%>
+		<p><%= label_tag 'login' %><br />
+		<%= text_field_tag 'login', @login %></p>
+
+		<p><%= label_tag 'password' %><br/>
+		<%= password_field_tag 'password', nil %></p>
+
+		<p><%= label_tag 'remember_me', 'Remember me' %>
+		<%= check_box_tag 'remember_me', '1', @remember_me %></p>
+
+		<p><%= submit_tag 'Log in' %></p>
+	<% end -%>
+    <%= link_to "Sign up", signup_path, { :title => "Create an account" } %>
+  </div>
+<% end -%>
