@@ -2,7 +2,7 @@ h1. "ready-to-go":http://github.com/kofuchs/ready-to-go
 
 ready-to-go is a Rails application that can be used as a start-up project. It includes some useful functions and plugins I like to use in my own projects with an easy way to configure them all in one place.
 
-h2. Informations
+h2. Information
 
 * index.html is already removed
 * If you want to use the cookie-based default option instead of having the sessions stored in the database, comment the last line in *config/initializers/session_store.rb* and remove the *db/migrate/002_sessions.rb* migration file.
@@ -53,7 +53,13 @@ Inside the users view folder you will see:
 
 h3. "forgot_password":http://github.com/greenisus/forgot_password
 
-Integrated with restful-authentication it is very helpful when people forget their passwords.
+Integrated with restful-authentication it is very helpful when people forget their passwords. It sends an e-mail to the user with a link were he/she can change the password.
+
+h3. "declarative_authorization":http://github.com/stffn/declarative_authorization
+
+The declarative authorization plugin offers an authorization mechanism. To set the rules just change the file *config/authorization_rules.rb*
+
+Usually I only need two types of user: Admin and User. At the moment someone is registered it becomes an User and can be turned in an Admin, otherwise it's only a guest. 
 
 
 

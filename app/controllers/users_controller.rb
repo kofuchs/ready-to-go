@@ -1,11 +1,56 @@
 class UsersController < ApplicationController
-  # Be sure to include AuthenticationSystem in Application Controller instead
-  include AuthenticatedSystem
+  filter_resource_access :collection => [:manage]# ==> index is default, use this when you don't refer to a specif object (no object ID)
   
+  def manage
+    @users = User.paginate :page => params[:page], :order => 'id DESC', :per_page => 20
+    
+    respond_to do |format|      
+      format.html # index.html.erb
+      format.xml  { render :xml => @users }
+    end
+  end
+  
+  def show
+    @user = User.find(params[:id])
 
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @user }
+    end
+  end
+  
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        flash[:notice] = "User was successfully updated."
+        format.html { redirect_to(@user) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
   # render new.rhtml
   def new
     @user = User.new
+  end
+  
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    
+    respond_to do |format|
+      format.html { redirect_to(users_url) }
+      format.xml  { head :ok }
+    end
   end
  
   def create
@@ -13,6 +58,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     success = @user && @user.save
     if success && @user.errors.empty?
+      Assignment.new(:user_id => @user.id, :role_id => Role.find_by_name('user').id).save #assign the User permission
       redirect_back_or_default('/')
       flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
     else

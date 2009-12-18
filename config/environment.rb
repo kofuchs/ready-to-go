@@ -44,4 +44,5 @@ Rails::Initializer.run do |config|
   
   config.gem 'whenever', :lib => false, :version => ">=0.4.1", :source => 'http://gemcutter.org/'
   config.gem 'will_paginate', :version => ">= 2.3.11", :source => 'http://gemcutter.org'
+  config.gem "declarative_authorization", :version => ">=0.4", :source => 'http://gemcutter.org'
 end

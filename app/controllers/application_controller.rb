@@ -9,7 +9,19 @@ class ApplicationController < ActionController::Base
   
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  
+  before_filter :set_current_user
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  
+  protected
+  def set_current_user
+    Authorization.current_user = current_user
+  end
+  def permission_denied
+    flash[:error] = "You don't have permission to access this area."
+    redirect_to root_url
+  end
+  
 end

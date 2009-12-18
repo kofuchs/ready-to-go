@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken
+  
+  has_many :assignments, :dependent => :destroy
+  has_many :roles, :through => :assignments
 
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
@@ -25,7 +28,12 @@ class User < ActiveRecord::Base
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :name, :password, :password_confirmation
 
-
+  def role_symbols
+    roles.map do |role|
+      role.name.underscore.to_sym
+    end
+  end
+  
   # Activates the user in the database.
   def activate!
     @activated = true

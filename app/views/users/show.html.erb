@@ -1,0 +1,12 @@
+<h1>User Information</h1>
+
+<p><%= label_tag 'login' %>:<br/>
+<%=h @user.login %></p>
+
+<p><%= label_tag 'name' %>:<br/>
+<%=h @user.name %></p>
+
+<p><%= label_tag 'email' %>:<br/>
+<%=h @user.email %></p>
+
+<%= link_to 'Edit', edit_user_path(@user) %>
