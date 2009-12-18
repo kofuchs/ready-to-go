@@ -18,21 +18,29 @@ h2. Installation
 
 h2. Plugins configuration
 
-All plugins came with a basic configuration, if you plan to customize you can check the plugins page or some of the links described below.
+All plugins came with a basic configuration, if you plan to customize you can check the plugins page.
 
-h3. exception_notification
+h3. "exception_notification":http://github.com/rails/exception_notification
 
-"reference":http://github.com/rails/exception_notification
+The Exception Notifier plugin provides a mailer object and a default set of templates for sending email notifications when errors occur in a Rails application.
 
-h3. whenever
+h3. "whenever":http://github.com/javan/whenever
+
+Whenever is a Ruby gem that provides a clear syntax for defining cron jobs. It outputs valid cron syntax and can even write your crontab file for you.
 
 If you plan to use this extension to manage cron jobs (e.g. If you are using sphinx and want to index your project every hour), you need to edit the "config/schedule.rb" file.
 After you finish editing the schedule.rb file, just run:
 
 <pre><code>$ whenever</code></pre>
 	
-"reference":http://github.com/javan/whenever
+h3. "will_paginate":http://github.com/mislav/will_paginate/
 
-h3. will_paginate 
+will_paginate is used to limit the number of records displayed in a single page.
 
-"reference":http://github.com/mislav/will_paginate/
+h3. "restful_-_authentication":http://github.com/technoweenie/restful-authentication
+
+This plugin provides a foundation for securely managing user authentication:
+* Login / logout
+* Secure password handling
+* Account activation by validating email
+* Account approval / disabling by admin
