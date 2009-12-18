@@ -5,15 +5,16 @@ ready-to-go is a Rails application that can be used as a start-up project. It in
 h2. Informations
 
 * index.html is already removed
-* If you want to have sessions stored in the database instead of the cookie-based default option, check the file config/initializers/session_store.rb
+* If you want to have sessions stored in the database instead of the cookie-based default option, check the file config/initializers/session_store.rb, you'll need to make some changes there.
 
 h2. Installation
 
-* The best way to use this project is to download it and unzip it in the location you will choose.
-* Edit the database.yml file (Usually I use mysql instead of sqlite3 but the default configurations is also there)
-* Edit the configuration.yml with your application details (initializers/configuration.rb does all the plugin configuration based on the values found in the yml file)
-* Run rake gems:install
-* Rake db:migrate
+* The best way to use this project is to download it and unzip it in the location you choose.
+* Edit the database.yml file (Usually I use mysql instead of sqlite3 but the default configuration is also there)
+* Edit the configuration.yml with your application/site details (initializers/configuration.rb does all the plugin configuration based on the values found in the yml file)
+* Run rake gems:install (This will install/update the gems on your system)
+* Run rake <pre><code>db:create</code></pre> (To create your database (append *:all* and you create the development/test/production databases))
+* Rake <pre><code>db:migrate</code></pre> (To create all the tables needed)
 
 h2. Plugins configuration
 
@@ -28,7 +29,7 @@ h3. whenever
 If you plan to use this extension to manage cron jobs (e.a. If you are using sphinx and want to index your project every hour), you need to edit the "config/schedule.rb" file.
 After you finish editing the schedule.rb file, just run:
 
-	$ whenever
+<pre><code>$ whenever</code></pre>
 	
 reference: http://github.com/javan/whenever
 
