@@ -1,29 +1,29 @@
-== h1. "ready-to-go":http://github.com/kofuchs/ready-to-go
+h1. "ready-to-go":http://github.com/kofuchs/ready-to-go
 
 ready-to-go is a Rails application that can be used as a start-up project. It includes some useful plugins I like to use in my own projects with an easy way to configure them all in one place.
 
-== h2. Informations
+h2. Informations
 
 * index.html is already removed
 * If you want to have sessions stored in the database instead of the cookie-based default option, check the file config/initializers/session_store.rb
 
-== h2. Installation
+h2. Installation
 
 * The best way to use this project is to download it and unzip it in the location you will choose.
-* Edit the database.yml file
+* Edit the database.yml file (Usually I use mysql instead of sqlite3 but the default configurations is also there)
 * Edit the configuration.yml with your application details (initializers/configuration.rb does all the plugin configuration based on the values found in the yml file)
 * Run rake gems:install
 * Rake db:migrate
 
-== h2. Plugins configuration
+h2. Plugins configuration
 
 All plugins came with a basic configuration, if you plan to customize you can check the plugins page or some of the links described below.
 
-== h3. Exception Notifier
+h3. exception_notification
 
 reference: http://github.com/rails/exception_notification
 
-== h3. whenever
+h3. whenever
 
 If you plan to use this extension to manage cron jobs (e.a. If you are using sphinx and want to index your project every hour), you need to edit the "config/schedule.rb" file.
 After you finish editing the schedule.rb file, just run:
@@ -32,6 +32,6 @@ After you finish editing the schedule.rb file, just run:
 	
 reference: http://github.com/javan/whenever
 
-== h3. will_paginate 
+h3. will_paginate 
 
 reference: http://github.com/mislav/will_paginate/
