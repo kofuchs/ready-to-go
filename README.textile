@@ -2,6 +2,12 @@ h1. "ready-to-go":http://github.com/kofuchs/ready-to-go
 
 ready-to-go is a Rails application that can be used as a start-up project. It includes some useful functions and plugins I like to use in my own projects with an easy way to configure them all in one place.
 
+h2. TODO
+* Add thinking-sphinx
+* Add capistrano
+* Add locale files
+* Add file_column
+
 h2. Information
 
 * index.html is already removed
