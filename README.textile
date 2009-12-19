@@ -12,6 +12,7 @@ h2. Information
 
 * index.html is already removed
 * If you want to use the cookie-based default option instead of having the sessions stored in the database, comment the last line in *config/initializers/session_store.rb* and remove the *db/migrate/002_sessions.rb* migration file.
+* An admin user is already created with password set as "password". Two roles are created: *User* and *Admin*.
 
 h2. Installation
 

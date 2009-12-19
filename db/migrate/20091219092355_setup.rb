@@ -37,15 +37,17 @@ class Setup < ActiveRecord::Migration
     #Create Assignments and Roles tables
     create_table :roles do |t|
       t.string :name
-      t.timestamps
-    end
-    create_table :assignments do |t|
-      t.integer :user_id
-      t.integer :role_id
-      t.timestamps
     end
     
-    Role.create(:name => 'admin')
+    create_table :assignments do |t|
+      t.belongs_to :user
+      t.belongs_to :role
+    end
+    
+    #Creates an admin user, activate it and create the roles User and Admin!
+    admin = User.create(:login => 'admin', :name => 'Administrator', :email=> CONFIG[:admin_email], :password => "password", :password_confirmation => "password")
+    admin.activate!
+    admin.roles << Role.create(:name => 'admin')
     Role.create(:name => 'user')
   end
 
