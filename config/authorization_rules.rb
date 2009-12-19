@@ -2,7 +2,7 @@ authorization do
   role :admin do
     includes :guest
     includes :user
-    has_permission_on :users, :to => [:admin, :all]
+    has_permission_on :users, :to => [:admin, :manage]
   end
   
   role :user do
