@@ -39,7 +39,7 @@ If you plan to use this extension to manage cron jobs (e.g. If you are using sph
 After you finish editing the *schedule.rb* file, just run:
 
 <pre><code>$ whenever</code></pre>
-	
+
 h3. "will_paginate":http://github.com/mislav/will_paginate/
 
 will_paginate is used to limit the number of records displayed in a single page.
@@ -67,7 +67,3 @@ h3. "declarative_authorization":http://github.com/stffn/declarative_authorizatio
 The declarative authorization plugin offers an authorization mechanism. To set the rules just change the file *config/authorization_rules.rb*
 
 Usually I only need two types of user: Admin and User. At the moment someone is registered it becomes an User and can be turned in an Admin, otherwise it's only a guest. 
-
-
-
-
